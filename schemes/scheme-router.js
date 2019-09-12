@@ -74,7 +74,6 @@ router.post('/:id/addSteps', (req, res) => {
     }
   })
   .catch (err => {
-    console.log("newStep: ", stepData)
     res.status(500).json({ message: 'Failed to create new step' });
   });
 });

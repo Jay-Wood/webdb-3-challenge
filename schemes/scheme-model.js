@@ -58,5 +58,7 @@ function addStep(step, scheme_id) {
     return db("steps")
         .insert(step)
         .where("scheme_id", scheme_id)
-        .then(ids => findById(ids[0]))
+        .then(() => {
+            return step;
+        })
 }

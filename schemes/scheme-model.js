@@ -43,5 +43,13 @@ function remove(id) {
 }
 
 function findSteps(id) {
-    
+    return db("schemes")
+        .join("steps", "schemes.id", "steps.scheme_id" )
+        .where({ scheme_id: id })
+        .select("steps.id", "schemes.scheme_name", "steps.step_number", "steps.instructions")
+        .then(steps => {
+            console.log("steps:", steps)
+            return steps
+        })
+        .catch( () => console.log("Did not work"))
 }

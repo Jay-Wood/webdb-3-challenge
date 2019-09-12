@@ -42,7 +42,6 @@ router.get('/:id/steps', (req, res) => {
     }
   })
   .catch(err => {
-    console.log("Lookey here:", req.body, id)
     res.status(500).json({ message: 'Failed to get steps' });
   });
 });
@@ -59,7 +58,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.post('/:id/steps', (req, res) => {
+router.post('/:id/addSteps', (req, res) => {
   const stepData = req.body;
   const { id } = req.params; 
 
@@ -75,6 +74,7 @@ router.post('/:id/steps', (req, res) => {
     }
   })
   .catch (err => {
+    console.log("newStep: ", stepData)
     res.status(500).json({ message: 'Failed to create new step' });
   });
 });

@@ -6,7 +6,8 @@ module.exports = {
     add,
     update, 
     remove, 
-    findSteps
+    findSteps, 
+    addStep
 }
 
 function find() {
@@ -48,8 +49,14 @@ function findSteps(id) {
         .where({ scheme_id: id })
         .select("steps.id", "schemes.scheme_name", "steps.step_number", "steps.instructions")
         .then(steps => {
-            console.log("steps:", steps)
             return steps
         })
         .catch( () => console.log("Did not work"))
+}
+
+function addStep(step, scheme_id) {
+    return db("steps")
+        .insert(step)
+        .where("scheme_id", scheme_id)
+        .then(ids => findById(ids[0]))
 }

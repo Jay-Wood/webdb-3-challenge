@@ -20,7 +20,10 @@ ORDER BY Customers.CustomerName*
 
 
 ### (Stretch)  Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 9 records.
-
+*SELECT Categories.CategoryName, COUNT(Categories.CategoryName) FROM Products 
+JOIN Categories ON Products.CategoryId = Categories.CategoryId
+GROUP BY CategoryName
+;*
 
 
 ### (Stretch) Display OrderID and a  column called ItemCount that shows the total number of products placed on the order. Shows 196 records. 

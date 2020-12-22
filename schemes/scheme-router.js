@@ -58,7 +58,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.post('/:id/steps', (req, res) => {
+router.post('/:id/addSteps', (req, res) => {
   const stepData = req.body;
   const { id } = req.params; 
 
